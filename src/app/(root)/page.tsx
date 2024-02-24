@@ -1,7 +1,6 @@
 import Image from "next/image";
 import PublicNavBar from "@/components/shared/NavBar";
 import Footer from "@/components/shared/Footer";
-import CTA from "@/components/home/CTA";
 
 export default function Home() {
   return (
