@@ -5,7 +5,7 @@ export interface INavLink {
 
 export const navLinks: INavLink[] = [
   {
-    id: "features",
+    id: "#features",
     title: "Features",
   },
   {
