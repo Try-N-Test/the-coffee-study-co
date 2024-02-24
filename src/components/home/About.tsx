@@ -7,25 +7,25 @@ import Image from "next/image";
 const About = () => {
   return (
     <section className="bg-primary-3 lg:h-screen">
-      <div className="ppx-4 mx-auto py-8 sm:px-6 sm:py-12 lg:px-44 lg:py-16">
+      <div className="px-4 mx-auto py-8 sm:px-6 sm:py-12 lg:px-44 lg:py-16">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-20">
-          <div className="relative my-auto  h-64 overflow-hidden rounded-2xl  bg-primary-6 sm:h-80 lg:order-last">
+          <div className="my-auto rounded-2xl py-12 bg-primary-6 lg:order-last">
             <Image
               width={500}
               height={500}
               alt=""
               src={about}
-              className="absolute inset-0 size-full object-cover object-center p-2"
+              className=""
             />
           </div>
 
-          <div className="max-w-xs  lg:py-24">
+          <div className="relative max-w-xs lg:py-24">
             <Image
               width={25}
               height={25}
               alt="three_lines_about"
               src={three_lines_about}
-              className="absolute -bottom-72 left-24  size-fit object-contain"
+              className="absolute -left-20 top-4 size-fit object-contain"
             />
             <h2 className="text-3xl font-semibold sm:text-4xl">
               Ready to unlock your potential? Discover what The Coffee Study Co.
@@ -44,7 +44,7 @@ const About = () => {
               height={25}
               alt="three_lines_about_lower"
               src={three_lines_about_lower}
-              className="absolute -bottom-[700px] left-[440px]  size-fit object-contain"
+              className="absolute bottom-4 -right-24 size-fit object-contain"
             />
           </div>
         </div>

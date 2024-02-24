@@ -14,7 +14,7 @@ const PublicNavBar = () => {
   return (
     <nav className="top-0 z-50 h-24 w-full border-gray-200 bg-primary-6 text-light-3">
       <div className="mx-auto flex max-h-96 max-w-screen-xl flex-wrap items-center justify-between px-2 pt-2 md:px-0">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex gap-3 items-center">
           <Image
             src={logo}
             height={75}
@@ -22,6 +22,7 @@ const PublicNavBar = () => {
             alt="Anuvaad Sangam Logo"
             loading="lazy"
           />
+          <h1 className="font-primary text-3xl text-primary-1 font-semibold">The Coffee Study Co.</h1>
         </Link>
 
         <button

@@ -66,17 +66,17 @@ const Footer = () => {
 
         <div className="flex gap-x-4">
           <Link href="/">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-7 hover:bg-black">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary-6 hover:bg-black">
               <FaXTwitter />
             </span>
           </Link>
           <Link href="/">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-7 hover:bg-facebook">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary-6 hover:bg-facebook">
               <FaFacebook />
             </span>
           </Link>
           <Link href="/">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-7 from-insta1 via-insta3  to-insta5 hover:bg-gradient-to-b">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary-6 from-insta1 via-insta3  to-insta5 hover:bg-gradient-to-b">
               {/* <AiOutlineInstagram /> */}
               <SiInstagram />
             </span>

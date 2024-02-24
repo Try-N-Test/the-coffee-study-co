@@ -11,9 +11,7 @@ export default function RootLayout({
           <body >
             <div className="w-full flex justify-center items-center min-h-screen">
             <div className="flex w-full flex-grow flex-col items-center bg-light-4">
-       
               {children}
-            
               </div>
             </div>
           </body>
