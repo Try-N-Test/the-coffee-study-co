@@ -12,7 +12,7 @@ const PublicNavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="z-50 h-24 w-full top-0 border-gray-200 bg-primary-6 text-light-3">
+    <nav className="top-0 z-50 h-24 w-full border-gray-200 bg-primary-6 text-light-3">
       <div className="mx-auto flex max-h-96 max-w-screen-xl flex-wrap items-center justify-between px-2 pt-2 md:px-0">
         <Link href="/" className="flex items-center">
           <Image
@@ -112,7 +112,10 @@ const PublicNavBar = () => {
               </Button>
             </Link>
             <Link href="/sign-up">
-              <Button variant={"outline"} className="px-8">
+              <Button
+                variant={"outline"}
+                className="px-8 text-secondary-9 hover:text-primary-9"
+              >
                 Register
               </Button>
             </Link>
