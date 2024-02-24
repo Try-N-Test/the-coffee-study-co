@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardContent } from "../ui/card";
+import { Card, CardHeader, CardContent, CardTitle } from "../ui/card";
 
 const Features = () => {
   return (
@@ -13,46 +13,50 @@ const Features = () => {
       <div className="col-span-12 grid grid-cols-12 gap-6">
         <div className="col-span-3">
           <Card>
-            <CardHeader>
-              <h3 className="text-3xl font-semibold">Community</h3>
-              <p className="text-sm text-slate-800">
+            <CardTitle>
+              Community
+            </CardTitle>
+            <CardContent>
                 Join a community of learners and educators who are passionate
                 about learning
-              </p>
-            </CardHeader>
+                </CardContent>
+
           </Card>
         </div>
         <div className="col-span-3">
           <Card>
-            <CardHeader>
-              <h3 className="text-3xl font-semibold">Community</h3>
-              <p className="text-sm text-slate-800">
+            <CardTitle>
+              Community
+            </CardTitle>
+            <CardContent>
                 Join a community of learners and educators who are passionate
                 about learning
-              </p>
-            </CardHeader>
+                </CardContent>
+
           </Card>
         </div>
         <div className="col-span-3">
           <Card>
-            <CardHeader>
-              <h3 className="text-3xl font-semibold">Community</h3>
-              <p className="text-sm text-slate-800">
+            <CardTitle>
+              Community
+            </CardTitle>
+            <CardContent>
                 Join a community of learners and educators who are passionate
                 about learning
-              </p>
-            </CardHeader>
+                </CardContent>
+
           </Card>
         </div>
         <div className="col-span-3">
           <Card>
-            <CardHeader>
-              <h3 className="text-3xl font-semibold">Community</h3>
-              <p className="text-sm text-slate-800">
+            <CardTitle>
+              Community
+            </CardTitle>
+            <CardContent>
                 Join a community of learners and educators who are passionate
                 about learning
-              </p>
-            </CardHeader>
+                </CardContent>
+
           </Card>
         </div>
         
