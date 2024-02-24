@@ -16,7 +16,7 @@ const CTA = () => {
             width={50}
             height={50}
             src={circle_cta}
-            className="absolute -bottom-72 left-32    size-24  object-contain object-center "
+            className="absolute -bottom-[980px] left-32    size-24  object-contain object-center "
           />
           <div className="relative z-50 my-auto h-64 w-full overflow-hidden rounded-lg bg-primary-9 sm:h-80  ">
             <Image
@@ -43,7 +43,7 @@ const CTA = () => {
               width={50}
               height={50}
               src={arrow_cta}
-              className="absolute -bottom-[350px] right-[70px]    size-32  object-contain object-center "
+              className="absolute -bottom-[1042px] right-[64px]    size-32  object-contain object-center "
             />
           </div>
         </div>
