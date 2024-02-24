@@ -1,15 +1,15 @@
 import Image from "next/image";
 import PublicNavBar from "@/components/shared/NavBar";
 import Footer from "@/components/shared/Footer";
+import CTA from "@/components/home/CTA";
 
 export default function Home() {
   return (
     <>
-    <PublicNavBar />
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <PublicNavBar />
+      <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
 
-    </main>
-    <Footer />
+      <Footer />
     </>
   );
 }
