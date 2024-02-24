@@ -1,0 +1,34 @@
+import { SignedIn, UserButton } from "@clerk/nextjs";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import logo from "@/assets/logo.svg";
+
+const CommunityNavbar = () => {
+  return (
+    <nav className="  flex  w-full justify-between gap-4 bg-secondary-1 p-1 dark:shadow-none sm:px-12">
+      <Link href="/" className="flex items-center gap-1">
+        <Image src={logo} alt="OverFlow Dev" width={80} height={80} />
+      </Link>
+
+      <div className="my-auto flex gap-5">
+        <button className="text-primary-9">create community</button>
+        <SignedIn>
+          <UserButton
+            afterSignOutUrl="/"
+            appearance={{
+              elements: {
+                avatarBox: "h-10 w-10",
+              },
+              variables: {
+                colorPrimary: "#ff7000",
+              },
+            }}
+          />
+        </SignedIn>
+      </div>
+    </nav>
+  );
+};
+
+export default CommunityNavbar;
