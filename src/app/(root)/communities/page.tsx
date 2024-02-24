@@ -13,7 +13,14 @@ import {
 import { LuUsers } from "react-icons/lu";
 import CommunityCTA from "@/components/shared/CommunityCTA";
 
-const Page = () => {
+import { currentUser } from "@clerk/nextjs";
+
+const Page = async () => {
+  const user = await currentUser();
+  if (!user) return null;
+
+  console.log(user.id);
+
   return (
     <>
       <div>
