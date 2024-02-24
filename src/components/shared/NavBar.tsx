@@ -70,7 +70,7 @@ const PublicNavBar = () => {
           </svg>
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="mt-4 flex flex-col p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:p-0 ">
+          <ul className="mt-4 flex flex-col gap-x-2 p-4 font-medium md:mt-0 md:flex-row md:p-0 ">
             {navLinks.map((nav) => (
               <li key={nav.id}>
                 <Link
@@ -107,14 +107,17 @@ const PublicNavBar = () => {
             ))}
 
             <Link href="/sign-in">
-              <Button variant={"secondary"} className="px-8">
+              <Button
+                variant={"secondary"}
+                className="bg-secondary-6 px-8 text-white hover:border  hover:border-secondary-6 hover:bg-transparent hover:text-black "
+              >
                 Login
               </Button>
             </Link>
             <Link href="/sign-up">
               <Button
                 variant={"outline"}
-                className="px-8 text-secondary-9 hover:text-primary-9"
+                className="border-secondary-6 px-8 text-primary-9"
               >
                 Register
               </Button>
