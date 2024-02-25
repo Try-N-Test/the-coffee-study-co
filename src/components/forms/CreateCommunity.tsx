@@ -42,7 +42,7 @@ const CreateCommunity = ({ userId }: { userId: string }) => {
       pathname,
     });
 
-    router.push("/");
+    router.push("/communities");
   };
 
   return (
