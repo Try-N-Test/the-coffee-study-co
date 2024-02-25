@@ -4,23 +4,22 @@ import { currentUser } from "@clerk/nextjs";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
 
-const Page = async() => {
-
+const Page = async () => {
   const user = await currentUser();
 
-  if(!user){
+  if (!user) {
     return null;
   }
 
   const userInfo = await fetchUser(user.id);
 
-  if(!userInfo?.onboarded){
+  if (!userInfo?.onboarded) {
     return redirect("/onboarding");
   }
 
   return (
     <>
-      <CreateCommunity userId={userInfo._id}  />
+      <CreateCommunity userId={userInfo._id} />
     </>
   );
 };

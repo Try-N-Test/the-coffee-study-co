@@ -1,15 +1,14 @@
 import { revalidatePath } from "next/cache";
-import { Community } from "../models/community.model";
+import Community from "../models/community.model";
 import { User } from "../models/user.model";
 import { connectToDB } from "../mongoose";
-
 
 export async function createCommunity(
   name: string,
   description: string,
   createdById: string, // Change the parameter name to reflect it's an id
-  pathname: string
-  ) {
+  pathname: string,
+) {
   try {
     connectToDB();
 
