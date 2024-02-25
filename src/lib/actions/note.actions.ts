@@ -22,7 +22,6 @@ export async function getNotes(communityId: string) {
 
 interface Params {
   communityId: string;
-  userId: string;
   pdfLink: string;
   title: string;
   description: string;
@@ -32,7 +31,6 @@ interface Params {
 
 export async function addNotes({
   communityId,
-  userId,
   pdfLink,
   title,
   description,
@@ -42,11 +40,9 @@ export async function addNotes({
   try {
     connectToDB();
     const community = await Community.findById(communityId);
-    const user = await User.findById(author);
 
     const newNote = await Note.create({
       communityId,
-      userId,
       pdfLink,
       title,
       description,
