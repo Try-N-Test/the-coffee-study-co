@@ -48,3 +48,46 @@ export async function createCommunity({
     throw error;
   }
 }
+
+
+export async function getCommunityById(id: string) {
+  try {
+    connectToDB();
+    const community = await Community.findById(id);
+    if (!community) {
+      throw new Error("Community not found");
+    }
+    return community;
+  } catch (error) {
+    console.error("Error getting community by id:", error);
+    throw error;
+  }
+}
+
+export async function getCommunities() {
+  try {
+    connectToDB();
+    const communities = await Community.find();
+    return communities;
+  } catch (error) {
+    console.error("Error getting communities:", error);
+    throw error;
+  }
+}
+
+
+export async function getCommunitiesOfUser(userId: string) {
+  try {
+    connectToDB();
+    const communities = await Community.find({ createdBy: userId });
+    if(!communities){
+      throw new Error("Communities not found");
+    }
+    
+    return communities;
+  }
+  catch (error) {
+    console.error("Error getting communities of user:", error);
+    throw error;
+  }
+}

@@ -14,13 +14,20 @@ import { LuUsers } from "react-icons/lu";
 import CommunityCTA from "@/components/shared/CommunityCTA";
 
 import { currentUser } from "@clerk/nextjs";
+import { fetchUser } from "@/lib/actions/user.actions";
+import { redirect } from "next/navigation";
+import { getCommunities, getCommunitiesOfUser } from "@/lib/actions/community.actions";
+import { PiArrowSquareInThin } from "react-icons/pi";
 
 const Page = async () => {
   const user = await currentUser();
   if (!user) return null;
 
-  
+  const userInfo = await fetchUser(user.id);
+  if (!userInfo?.onboarded) return redirect("/onboarding");
 
+  const communities = await getCommunitiesOfUser(userInfo._id);
+  console.log(communities);
   return (
     <>
       <div>
@@ -32,7 +39,7 @@ const Page = async () => {
             Find Your Community, One Cup at a Time
           </h1>
         </div>
-        <div className="font-secondary my-11 flex w-4/5 justify-around    ">
+        <div className="my-11 flex w-4/5 justify-around font-secondary    ">
           <div className="flex  gap-1 text-xl">
             <Image
               src={circle_check}
@@ -84,7 +91,7 @@ const Page = async () => {
         <div className="mx-4 mt-11 grid grid-cols-4 gap-5">
           {[0, 1, 2, 3].map((data, index) => (
             <Card
-              className="font-primary group  relative max-w-xs text-center "
+              className="group relative  max-w-xs text-center font-primary "
               key={index}
             >
               <CardTitle className="mt-4 text-4xl font-semibold">
@@ -124,7 +131,7 @@ const Page = async () => {
         <div className="mx-4 mt-16 grid grid-cols-4 gap-5">
           {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((data, index) => (
             <Card
-              className="font-primary group  relative max-w-xs text-center "
+              className="group relative  max-w-xs text-center font-primary "
               key={index}
             >
               <CardTitle className="mt-4 text-4xl font-semibold">
