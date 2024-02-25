@@ -19,7 +19,7 @@ const Page = async () => {
   const user = await currentUser();
   if (!user) return null;
 
-  console.log(user.id);
+  
 
   return (
     <>
