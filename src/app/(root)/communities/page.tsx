@@ -16,8 +16,14 @@ import CommunityCTA from "@/components/shared/CommunityCTA";
 import { currentUser } from "@clerk/nextjs";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
-import { getCommunities, getCommunitiesOfUser, getOtherCommunities } from "@/lib/actions/community.actions";
+import {
+  getCommunities,
+  getCommunitiesOfUser,
+  getOtherCommunities,
+} from "@/lib/actions/community.actions";
 import { PiArrowSquareInThin } from "react-icons/pi";
+import Footer from "@/components/shared/Footer";
+import Link from "next/link";
 
 const Page = async () => {
   const user = await currentUser();
@@ -27,7 +33,9 @@ const Page = async () => {
   if (!userInfo?.onboarded) return redirect("/onboarding");
 
   const communities = await getOtherCommunities(userInfo._id);
+  const userCommunities = await getCommunitiesOfUser(userInfo._id);
   console.log(communities);
+  console.log(userCommunities, "user community");
   return (
     <>
       <div>
@@ -89,33 +97,42 @@ const Page = async () => {
           Your Communities
         </h3>
         <div className="mx-4 mt-11 grid grid-cols-4 gap-5">
-          {[0, 1, 2, 3].map((data, index) => (
-            <Card
-              className="group relative  max-w-xs text-center font-primary "
-              key={index}
-            >
-              <CardTitle className="mt-4 text-4xl font-semibold">
-                Progies
-              </CardTitle>
-              <CardDescription className="my-4 text-xl font-semibold text-primary-4">
-                {" "}
-                18.9k Members
-              </CardDescription>
-              <CardContent className="text-lg font-semibold text-primary-8">
-                Lorem ipsum dolor sit amet consectetur. Mauris netus cum
-                dignissim fermentum tempor rutrum. Ut urna sollicitudin erat
-                pellentesque nam amet.
-              </CardContent>
-              <CardFooter className="absolute inset-x-0 bottom-0 hidden h-[2px] cursor-pointer  rounded-lg bg-primary-6/95 transition-all group-hover:grid group-hover:h-full group-active:bg-primary-6">
-                <CardTitle className="flex h-full justify-center ">
-                  <LuUsers className="mx-auto text-center text-7xl text-white" />
+          {userCommunities.length > 0 ? (
+            userCommunities.map((data, index) => (
+              <Card
+                className="group relative min-h-72  max-w-xs text-center font-primary "
+                key={index}
+              >
+                <CardTitle className="mt-4 text-4xl font-semibold">
+                  {data.name}
                 </CardTitle>
-                <CardDescription className="h-full  py-0 text-6xl font-semibold text-white">
-                  Connect Now!
+                <CardDescription className="my-4 text-xl font-semibold text-primary-4">
+                  {" "}
+                  {data.members.length} Members
                 </CardDescription>
-              </CardFooter>
-            </Card>
-          ))}
+                <CardContent className="text-lg font-semibold text-primary-8">
+                  {data.description}
+                  <Link href={`/communities/${data._id}/chat-room`}>
+                    Connect Now!
+                  </Link>
+                </CardContent>
+                {/* <CardFooter className="absolute inset-x-0 bottom-0 hidden h-[2px] cursor-pointer  rounded-lg bg-primary-6/95 transition-all group-hover:grid group-hover:h-full group-active:bg-primary-6">
+                  <CardTitle className="flex h-full justify-center ">
+                    <LuUsers className="mx-auto text-center text-7xl text-white" />
+                  </CardTitle>
+                  <CardDescription className="h-full  py-0 text-6xl font-semibold text-white">
+                    <Link href={`/communities/${data._id}/chat-room`}>
+                      Connect Now!
+                    </Link>
+                  </CardDescription>
+                </CardFooter> */}
+              </Card>
+            ))
+          ) : (
+            <>
+              <h1 className="text-5xl">You haven&#39;t join any community</h1>
+            </>
+          )}
         </div>
       </div>
       <div className="mt-16">
@@ -128,23 +145,21 @@ const Page = async () => {
           <span className="text-primary-7">diverse communities</span> and
           belong.
         </h3>
-        <div className="mx-4 mt-16 grid grid-cols-4 gap-5">
-          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((data, index) => (
+        <div className="mx-4 my-16 grid grid-cols-4 gap-5">
+          {communities.map((data, index) => (
             <Card
-              className="group relative  max-w-xs text-center font-primary "
+              className="group relative  min-h-72 max-w-xs text-center font-primary "
               key={index}
             >
               <CardTitle className="mt-4 text-4xl font-semibold">
-                Synergy
+                {data.name}
               </CardTitle>
               <CardDescription className="my-4 text-xl font-semibold text-primary-4">
                 {" "}
-                18.9k Members
+                {data.members.length} members
               </CardDescription>
               <CardContent className="text-lg font-semibold text-primary-8">
-                Lorem ipsum dolor sit amet consectetur. Mauris netus cum
-                dignissim fermentum tempor rutrum. Ut urna sollicitudin erat
-                pellentesque nam amet.
+                {data.description}
               </CardContent>
               <CardFooter className="absolute inset-x-0 bottom-0 hidden h-[2px] cursor-pointer  rounded-lg bg-primary-6/95 transition-all group-hover:grid group-hover:h-full group-active:bg-primary-6">
                 <CardTitle className="flex h-full justify-center ">
@@ -158,6 +173,7 @@ const Page = async () => {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

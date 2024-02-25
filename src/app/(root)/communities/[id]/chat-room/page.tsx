@@ -1,10 +1,14 @@
 import CommunityNavbar from "@/components/shared/CommunityNavbar";
 import SideBar from "@/components/shared/Sidebar";
+import { getCommunityById } from "@/lib/actions/community.actions";
 import React from "react";
 interface UrlProps {
-  params: string;
+  params: { id: string };
 }
-const Page = ({ params }: UrlProps) => {
+const Page = async ({ params }: UrlProps) => {
+  console.log(params.id, "test");
+  const result = await getCommunityById(params.id);
+  console.log(result, "result from chat room");
   return (
     <>
       <div style={{ width: "100%" }}>
@@ -13,7 +17,9 @@ const Page = ({ params }: UrlProps) => {
             <CommunityNavbar />
             <div className="flex bg-[#F4F4F5]" style={{ width: "100%" }}>
               <SideBar />
-              <div className=" pt-6" style={{ width: "100%" }}></div>
+              <div className=" pt-6" style={{ width: "100%" }}>
+                {result.name}
+              </div>
             </div>
           </div>
         </div>

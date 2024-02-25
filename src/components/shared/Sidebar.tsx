@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import xyz from "@/assets/Elements/settin.svg";
 const SideBar = () => {
   const pathname = usePathname();
   console.log(pathname);
@@ -46,13 +45,6 @@ const SideBar = () => {
             <>
               <Link href="/sign-in">
                 <Button className="flex w-full items-center justify-start gap-4 rounded-2xl bg-primary-4 p-4  hover:bg-secondary-6">
-                  <Image
-                    src={xyz}
-                    alt="login"
-                    width={20}
-                    height={20}
-                    className="  "
-                  />
                   <span className="text-black ">Setting</span>
                 </Button>
               </Link>
