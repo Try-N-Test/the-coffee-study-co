@@ -5,9 +5,16 @@ import Hero from "@/components/home/Hero";
 import Features from "@/components/home/Features";
 import About from "@/components/home/About";
 import CTA from "@/components/home/CTA";
+import { redirect } from "next/navigation";
+import { currentUser } from "@clerk/nextjs";
+import { fetchUser } from "@/lib/actions/user.actions";
 
+export default async function Home() {
+  const user = await currentUser();
+  if (!user) return null;
 
-export default function Home() {
+  const userInfo = await fetchUser(user.id);
+  if (userInfo?.onboarded) redirect("/communities");
   return (
     <>
       <PublicNavBar />
