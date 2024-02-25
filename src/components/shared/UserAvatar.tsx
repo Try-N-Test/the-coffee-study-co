@@ -32,7 +32,7 @@ const UserAvatar = ({
       </Link>
       <p className="my-auto font-secondary text-lg font-semibold text-primary-3 ">
         {/* posted /created  on here */}
-        {formatDateString("2024-02-25T12:00:00Z")}
+        {formatDateString("2024-01-25T12:00:00Z")}
       </p>
     </div>
   );
