@@ -6,7 +6,7 @@ import logo from "@/assets/logo.svg";
 
 const CommunityNavbar = () => {
   return (
-    <nav className="  flex  w-full justify-between gap-4 bg-secondary-1 p-1 dark:shadow-none sm:px-12">
+    <nav className=" flex w-full justify-between  gap-4 border-b border-secondary-6 bg-secondary-1 p-1 dark:shadow-none sm:px-12">
       <Link href="/" className="flex items-center gap-1">
         <Image src={logo} alt="OverFlow Dev" width={80} height={80} />
       </Link>

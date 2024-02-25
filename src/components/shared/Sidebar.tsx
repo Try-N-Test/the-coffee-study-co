@@ -9,7 +9,7 @@ import setting from "@/assets/Elements/setting.svg";
 const SideBar = () => {
   const pathname = usePathname();
   return (
-    <section className=" custom-scrollbar  sticky left-0 top-0 flex h-screen  shrink  flex-col  justify-between overflow-y-auto border-r p-6  pt-24  max-sm:hidden lg:w-[266px]   ">
+    <section className=" custom-scrollbar sticky left-0  top-0 flex h-screen shrink flex-col  justify-between  overflow-y-auto    p-6  pt-24  max-sm:hidden lg:w-[266px]   ">
       <div className="flex flex-1 flex-col gap-2 ">
         {sidebarLinks.map((item) => {
           const isActive =
