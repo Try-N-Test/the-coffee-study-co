@@ -25,12 +25,7 @@ const VideoCard = () => {
       <CardDescription className="mt-0 font-secondary text-base font-medium text-primary-9 lg:px-20">
         {/* article content goes here */}
         Lorem ipsum dolor sit amet consectetur. Quam aenean adipiscing neque
-        mauris volutpat donec integer erat. Id pharetra faucibus neque vitae
-        diam et. Pretium tristique fames phasellus massa vehicula faucibus
-        suspendisse leo. Vel tristique a praesent ullamcorper vel. Gravida sed
-        aliquet nulla congue. Nibh fringilla quam hac et porttitor. Ac facilisis
-        eu aenean erat neque. Pharetra turpis enim vel erat. Elementum duis vel
-        sit urna.
+        mauris volutpat donec integer erat.
       </CardDescription>
       <CardContent className="lg:px-20 ">
         <ReactPlayer url="https://www.youtube.com/watch?v=SkgrkCTRZfw" />

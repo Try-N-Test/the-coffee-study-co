@@ -1,3 +1,4 @@
+import NotesCard from "@/components/cards/NotesCard";
 import CommunityNavbar from "@/components/shared/CommunityNavbar";
 import SideBar from "@/components/shared/Sidebar";
 import React from "react";
@@ -13,7 +14,13 @@ const Page = ({ params }: UrlProps) => {
             <CommunityNavbar />
             <div className="flex bg-[#F4F4F5]" style={{ width: "100%" }}>
               <SideBar />
-              <div className=" pt-6" style={{ width: "100%" }}></div>
+              <div className="bg-secondary-1 pt-6" style={{ width: "100%" }}>
+                {[0, 1, 2, 3].map((data, index) => (
+                  <div key={index}>
+                    <NotesCard />;
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
