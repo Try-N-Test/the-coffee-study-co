@@ -79,10 +79,12 @@ export async function getCommunities() {
 export async function getCommunitiesOfUser(userId: string) {
   try {
     connectToDB();
-    const communities = await Community.find({ createdBy: userId });
+    const communities = await Community.find({ members: userId });
     if (!communities) {
       throw new Error("Communities were not found");
     }
+
+    revalidatePath(`/communities`); // Revalidate the path after getting the communities of the user
 
     return communities;
   } catch (error) {
@@ -110,7 +112,10 @@ export async function joinCommunity(userId: string, communityId: string) {
     user.communities.push(community._id);
     await user.save();
 
-    revalidatePath(`/communities/${communityId}`); // Revalidate the path after joining the community
+    revalidatePath(`/communities`); // Revalidate the path after joining the community
+
+    return community;
+
   } catch (error) {
     console.error("Error joining community:", error);
     throw error;
