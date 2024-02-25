@@ -32,22 +32,22 @@ export interface SidebarLink {
 export const sidebarLinks: SidebarLink[] = [
   {
     icons: BsChatRight,
-    route: "/chat-room",
+    route: "/communities/65db49eadab3d1062d048e7b/chat-room",
     label: "Chat Rooms",
   },
   {
     icons: GrGroup,
-    route: "/notes",
+    route: "/communities/65db49eadab3d1062d048e7b/notes",
     label: "Notes",
   },
   {
     icons: PiNotePencilLight,
-    route: "/articles",
+    route: "/communities/65db49eadab3d1062d048e7b/articles",
     label: "Articles",
   },
   {
     icons: CiYoutube,
-    route: "/videos",
+    route: "/communities/65db49eadab3d1062d048e7b/videos",
     label: "Videos",
   },
 ];

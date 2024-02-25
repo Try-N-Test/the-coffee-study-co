@@ -16,7 +16,7 @@ const Page = async ({ params }: UrlProps) => {
           <div style={{ width: "100%", height: "100vh", overflow: "scroll" }}>
             <CommunityNavbar />
             <div className="flex bg-[#F4F4F5]" style={{ width: "100%" }}>
-              <SideBar />
+              <SideBar dUrl={params.id} />
               <div className=" pt-6" style={{ width: "100%" }}>
                 {result.name}
               </div>

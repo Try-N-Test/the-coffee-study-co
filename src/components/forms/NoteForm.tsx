@@ -14,13 +14,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Textarea } from "../ui/textarea";
@@ -29,6 +23,7 @@ const notesFormSchema = z.object({
   notesTitle: z.string().min(2, {
     message: "notes title must be at least 2 characters.",
   }),
+  notesLink: z.string().url(),
   notesDescription: z
     .string()
     .min(20, {
@@ -85,7 +80,7 @@ const NotesForm = () => {
               />
               <FormField
                 control={form.control}
-                name="notesDescription"
+                name="notesLink"
                 render={({ field }) => (
                   <FormItem className="">
                     <FormLabel className="font-secondary text-xl font-semibold">
@@ -93,6 +88,22 @@ const NotesForm = () => {
                     </FormLabel>
                     <FormControl>
                       <Input placeholder="" {...field} />
+                    </FormControl>
+                    <FormDescription>paste a link (20mb max)</FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="notesDescription"
+                render={({ field }) => (
+                  <FormItem className="">
+                    <FormLabel className="font-secondary text-xl font-semibold">
+                      Notes link
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="" {...field} />
                     </FormControl>
                     <FormDescription>Upload a pdf(20mb max)</FormDescription>
                     <FormMessage />
