@@ -2,7 +2,7 @@
 
 import { connectToDB } from "../mongoose";
 import { User } from "@/lib/models/user.model";
-import { Community } from "@/lib/models/community.model";
+import Community from "@/lib/models/community.model";
 import { revalidatePath } from "next/cache";
 
 export async function fetchUser(userId: string) {

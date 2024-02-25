@@ -1,3 +1,4 @@
+"use server"
 import { revalidatePath } from "next/cache";
 import Community from "../models/community.model";
 import { User } from "../models/user.model";
@@ -14,12 +15,11 @@ export async function createCommunity(
 
     // Find the user with the provided unique id
     const user = await User.findOne({ id: createdById });
-
     if (!user) {
       throw new Error("User not found"); // Handle the case if the user with the id is not found
     }
 
-    const newCommunity = new Community({
+    const newCommunity = await Community.create({
       name,
       description,
       createdBy: user._id, // Use the mongoose ID of the user

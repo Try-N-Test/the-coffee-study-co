@@ -13,7 +13,7 @@ export const CommunityValidation = z.object({
   description: z
     .string()
     .nonempty({ message: "Community Description is required." })
-    .min(50, {
+    .min(15, {
       message: "Community Description must be at least 50 characters.",
     })
     .max(500, {
