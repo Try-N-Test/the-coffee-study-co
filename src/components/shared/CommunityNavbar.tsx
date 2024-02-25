@@ -11,23 +11,28 @@ const CommunityNavbar = () => {
         <Image src={logo} alt="OverFlow Dev" width={80} height={80} />
       </Link>
 
-      <div className="my-auto flex gap-5">
-        <Link href="/communities/create-communities" className="text-primary-9">
+      <div className=" flex gap-5">
+        <Link
+          href="/communities/create-communities"
+          className="my-auto text-primary-9"
+        >
           create community
         </Link>
-        <SignedIn>
-          <UserButton
-            afterSignOutUrl="/"
-            appearance={{
-              elements: {
-                avatarBox: "h-10 w-10",
-              },
-              variables: {
-                colorPrimary: "#ff7000",
-              },
-            }}
-          />
-        </SignedIn>
+        <div className="my-auto">
+          <SignedIn>
+            <UserButton
+              afterSignOutUrl="/"
+              appearance={{
+                elements: {
+                  avatarBox: "h-10 w-10",
+                },
+                variables: {
+                  colorPrimary: "#ff7000",
+                },
+              }}
+            />
+          </SignedIn>
+        </div>
       </div>
     </nav>
   );

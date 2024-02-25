@@ -5,9 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import setting from "@/assets/Elements/setting.svg";
+import xyz from "@/assets/Elements/settin.svg";
 const SideBar = () => {
   const pathname = usePathname();
+  console.log(pathname);
   return (
     <section className=" custom-scrollbar sticky left-0  top-0 flex h-screen shrink flex-col  justify-between  overflow-y-auto    p-6  pt-24  max-sm:hidden lg:w-[266px]   ">
       <div className="flex flex-1 flex-col gap-2 ">
@@ -22,7 +23,7 @@ const SideBar = () => {
                 href={item.route}
                 className={`${
                   isActive
-                    ? "rounded-lg   bg-primary-4  text-white"
+                    ? "rounded-lg   bg-secondary-6  text-white"
                     : "text-dark300_light900"
                 } flex items-center justify-start gap-4 rounded-2xl bg-primary-1 p-4`}
               >
@@ -44,9 +45,9 @@ const SideBar = () => {
           <div className="flex flex-col gap-3">
             <>
               <Link href="/sign-in">
-                <Button className="flex w-full items-center justify-start gap-4 rounded-2xl bg-primary-1 p-4 hover:bg-secondary-6">
+                <Button className="flex w-full items-center justify-start gap-4 rounded-2xl bg-primary-4 p-4  hover:bg-secondary-6">
                   <Image
-                    src={setting}
+                    src={xyz}
                     alt="login"
                     width={20}
                     height={20}
