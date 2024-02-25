@@ -12,7 +12,9 @@ const CommunityNavbar = () => {
       </Link>
 
       <div className="my-auto flex gap-5">
-        <button className="text-primary-9">create community</button>
+        <Link href="/communities/create-communities" className="text-primary-9">
+          create community
+        </Link>
         <SignedIn>
           <UserButton
             afterSignOutUrl="/"
