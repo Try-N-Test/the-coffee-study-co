@@ -16,7 +16,7 @@ import CommunityCTA from "@/components/shared/CommunityCTA";
 import { currentUser } from "@clerk/nextjs";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
-import { getCommunities, getCommunitiesOfUser } from "@/lib/actions/community.actions";
+import { getCommunities, getCommunitiesOfUser, getOtherCommunities } from "@/lib/actions/community.actions";
 import { PiArrowSquareInThin } from "react-icons/pi";
 
 const Page = async () => {
@@ -26,7 +26,7 @@ const Page = async () => {
   const userInfo = await fetchUser(user.id);
   if (!userInfo?.onboarded) return redirect("/onboarding");
 
-  const communities = await getCommunitiesOfUser(userInfo._id);
+  const communities = await getOtherCommunities(userInfo._id);
   console.log(communities);
   return (
     <>
