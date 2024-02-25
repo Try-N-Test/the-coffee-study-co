@@ -15,7 +15,6 @@ const Page = ({ params }: UrlProps) => {
             <div className="flex bg-[#F4F4F5]" style={{ width: "100%" }}>
               <SideBar />
               <div className=" pt-6" style={{ width: "100%" }}>
-                <ArticlesCard />
                 {/* <Accordion/> */}
               </div>
             </div>
