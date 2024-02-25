@@ -1,7 +1,7 @@
 import * as z from "zod";
 
-export const ThreadValidation = z.object({
-  communityName: z
+export const CommunityValidation = z.object({
+  name: z
     .string()
     .nonempty({ message: "Community Name is required." })
     .min(2, {
@@ -10,7 +10,7 @@ export const ThreadValidation = z.object({
     .max(50, {
       message: "Community Name can not be at least 2 characters.",
     }),
-  communityDescription: z
+  description: z
     .string()
     .nonempty({ message: "Community Description is required." })
     .min(50, {
@@ -19,5 +19,5 @@ export const ThreadValidation = z.object({
     .max(500, {
       message: "Community Description can not be at least 50 characters.",
     }),
-  accountId: z.string(),
+  createdBy: z.string(),
 });

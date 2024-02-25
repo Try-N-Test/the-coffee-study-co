@@ -22,6 +22,10 @@ const communitySchema = new mongoose.Schema(
         ref: "Video",
       },
     ],
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
     posts: [
       {
         type: mongoose.Schema.Types.ObjectId,
