@@ -24,6 +24,8 @@ import {
 import { PiArrowSquareInThin } from "react-icons/pi";
 import Footer from "@/components/shared/Footer";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import CommunityCard from "@/components/cards/CommunityCard";
 
 const Page = async () => {
   const user = await currentUser();
@@ -34,6 +36,7 @@ const Page = async () => {
 
   const communities = await getOtherCommunities(userInfo._id);
   const userCommunities = await getCommunitiesOfUser(userInfo._id);
+
   console.log(communities);
   console.log(userCommunities, "user community");
   return (
@@ -112,20 +115,15 @@ const Page = async () => {
                 </CardDescription>
                 <CardContent className="text-lg font-semibold text-primary-8">
                   {data.description}
-                  <Link href={`/communities/${data._id}/chat-room`}>
-                    Connect Now!
-                  </Link>
                 </CardContent>
-                {/* <CardFooter className="absolute inset-x-0 bottom-0 hidden h-[2px] cursor-pointer  rounded-lg bg-primary-6/95 transition-all group-hover:grid group-hover:h-full group-active:bg-primary-6">
-                  <CardTitle className="flex h-full justify-center ">
-                    <LuUsers className="mx-auto text-center text-7xl text-white" />
-                  </CardTitle>
-                  <CardDescription className="h-full  py-0 text-6xl font-semibold text-white">
-                    <Link href={`/communities/${data._id}/chat-room`}>
+                <CardFooter className="flex justify-center">
+                  <Link href={`/communities/${data._id}/chat-room`}>
+                    <Button className="bg-secondary-6 hover:bg-secondary-7 ">
+                      {" "}
                       Connect Now!
-                    </Link>
-                  </CardDescription>
-                </CardFooter> */}
+                    </Button>
+                  </Link>
+                </CardFooter>
               </Card>
             ))
           ) : (
@@ -147,29 +145,16 @@ const Page = async () => {
         </h3>
         <div className="mx-4 my-16 grid grid-cols-4 gap-5">
           {communities.map((data, index) => (
-            <Card
-              className="group relative  min-h-72 max-w-xs text-center font-primary "
-              key={index}
-            >
-              <CardTitle className="mt-4 text-4xl font-semibold">
-                {data.name}
-              </CardTitle>
-              <CardDescription className="my-4 text-xl font-semibold text-primary-4">
-                {" "}
-                {data.members.length} members
-              </CardDescription>
-              <CardContent className="text-lg font-semibold text-primary-8">
-                {data.description}
-              </CardContent>
-              <CardFooter className="absolute inset-x-0 bottom-0 hidden h-[2px] cursor-pointer  rounded-lg bg-primary-6/95 transition-all group-hover:grid group-hover:h-full group-active:bg-primary-6">
-                <CardTitle className="flex h-full justify-center ">
-                  <LuUsers className="mx-auto text-center text-7xl text-white" />
-                </CardTitle>
-                <CardDescription className="h-full  py-0 text-6xl font-semibold text-white">
-                  Connect Now!
-                </CardDescription>
-              </CardFooter>
-            </Card>
+            <>
+              <CommunityCard
+                key={index}
+                name={data.name}
+                description={data.description}
+                membersLength={data.members.length}
+                userId={userInfo._id}
+                communityId={data._id}
+              />
+            </>
           ))}
         </div>
       </div>
