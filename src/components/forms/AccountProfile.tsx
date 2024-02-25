@@ -137,7 +137,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                   />
                 )}
               </FormLabel>
-              <FormControl className="flex-1 text-base-semibold text-gray-200">
+              <FormControl className="flex-1 text-base-semibold text-primary-9">
                 <Input
                   type="file"
                   accept="image/*"
@@ -156,8 +156,8 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           name="name"
           render={({ field }) => (
             <FormItem className="flex flex-col gap-3 w-full">
-              <FormLabel className="text-light-1">Name</FormLabel>
-              <FormControl className="flex-1 text-base-semibold text-gray-200">
+              <FormLabel className="text-slate-900">Name</FormLabel>
+              <FormControl className="flex-1 text-base-semibold text-primary-9">
                 <Input
                   type="text"
                   className="account-form_input no focus"
@@ -174,8 +174,8 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           name="username"
           render={({ field }) => (
             <FormItem className="flex flex-col gap-3 w-full">
-              <FormLabel className="text-light-1">Username</FormLabel>
-              <FormControl className="flex-1 text-base-semibold text-gray-200">
+              <FormLabel className="text-slate-900">Username</FormLabel>
+              <FormControl className="flex-1 text-base-semibold text-primary-9">
                 <Input
                   type="text"
                   className="account-form_input no focus"
@@ -192,8 +192,8 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           name="bio"
           render={({ field }) => (
             <FormItem className="flex flex-col gap-3 w-full">
-              <FormLabel className="text-light-1">Bio</FormLabel>
-              <FormControl className="flex-1 text-base-semibold text-gray-200">
+              <FormLabel className="text-slate-900">Bio</FormLabel>
+              <FormControl className="flex-1 text-base-semibold text-primary-9">
                 <Textarea
                   rows={10}
                   className="account-form_input no focus"
@@ -205,7 +205,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           )}
         />
 
-        <Button type="submit" className="bg-primary-500">
+        <Button type="submit" variant="outline">
           Submit
         </Button>
       </form>
