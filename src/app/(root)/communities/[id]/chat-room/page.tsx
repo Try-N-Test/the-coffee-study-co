@@ -1,4 +1,3 @@
-import ArticlesCard from "@/components/cards/ArticlesCards";
 import CommunityNavbar from "@/components/shared/CommunityNavbar";
 import SideBar from "@/components/shared/Sidebar";
 import React from "react";
@@ -14,9 +13,7 @@ const Page = ({ params }: UrlProps) => {
             <CommunityNavbar />
             <div className="flex bg-[#F4F4F5]" style={{ width: "100%" }}>
               <SideBar />
-              <div className=" pt-6" style={{ width: "100%" }}>
-                {/* <Accordion/> */}
-              </div>
+              <div className=" pt-6" style={{ width: "100%" }}></div>
             </div>
           </div>
         </div>
