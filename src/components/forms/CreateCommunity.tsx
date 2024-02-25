@@ -29,17 +29,13 @@ const CreateCommunity = ({ userId }: { userId: string }) => {
     resolver: zodResolver(CommunityValidation),
     defaultValues: {
       name: "",
-      description:"",
-      accountId: userId,
+      description: "",
+      createdBy: userId,
     },
   });
 
   const onSubmit = async (values: z.infer<typeof CommunityValidation>) => {
-    await createCommunity({
-      name: values.name,
-      description: values.description,
-      createdBy: userId,
-    });
+    await createCommunity(values.name, values.description, userId, pathname);
 
     router.push("/");
   };
@@ -59,7 +55,7 @@ const CreateCommunity = ({ userId }: { userId: string }) => {
           >
             <FormField
               control={form.control}
-              name="communityName"
+              name="name"
               render={({ field }) => (
                 <FormItem className="gap-y-4">
                   <FormLabel className="font-secondary text-xl font-semibold">
@@ -77,7 +73,7 @@ const CreateCommunity = ({ userId }: { userId: string }) => {
             />
             <FormField
               control={form.control}
-              name="communityDescription"
+              name="description"
               render={({ field }) => (
                 <FormItem className="">
                   <FormLabel className="font-secondary text-xl font-semibold">

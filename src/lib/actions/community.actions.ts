@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { Community } from "../models/community.model";
 import { User } from "../models/user.model";
 import { connectToDB } from "../mongoose";
@@ -7,7 +8,8 @@ export async function createCommunity(
   name: string,
   description: string,
   createdById: string, // Change the parameter name to reflect it's an id
-) {
+  pathname: string
+  ) {
   try {
     connectToDB();
 
@@ -30,7 +32,7 @@ export async function createCommunity(
     user.communities.push(createdCommunity._id);
     await user.save();
 
-    return createdCommunity;
+    revalidatePath(pathname); // Revalidate the path after creating the community
   } catch (error) {
     // Handle any errors
     console.error("Error creating community:", error);
