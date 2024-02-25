@@ -35,7 +35,12 @@ const CreateCommunity = ({ userId }: { userId: string }) => {
   });
 
   const onSubmit = async (values: z.infer<typeof CommunityValidation>) => {
-    await createCommunity(values.name, values.description, userId, pathname);
+    await createCommunity({
+      name: values.name,
+      description: values.description,
+      createdById: userId,
+      pathname,
+    });
 
     router.push("/");
   };

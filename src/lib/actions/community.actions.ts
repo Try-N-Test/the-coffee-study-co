@@ -4,17 +4,26 @@ import Community from "../models/community.model";
 import { User } from "../models/user.model";
 import { connectToDB } from "../mongoose";
 
-export async function createCommunity(
+interface Params{
   name: string,
   description: string,
   createdById: string, // Change the parameter name to reflect it's an id
   pathname: string,
+}
+
+export async function createCommunity({
+  name,
+  description,
+  createdById,
+  pathname
+}: Params
 ) {
   try {
     connectToDB();
 
     // Find the user with the provided unique id
-    const user = await User.findOne({ id: createdById });
+    const user = await User.findById(createdById);
+
     if (!user) {
       throw new Error("User not found"); // Handle the case if the user with the id is not found
     }
