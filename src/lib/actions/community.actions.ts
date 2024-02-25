@@ -32,6 +32,7 @@ export async function createCommunity({
       name,
       description,
       createdBy: user._id, // Use the mongoose ID of the user
+      members:[user._id],
     });
 
     const createdCommunity = await newCommunity.save();
