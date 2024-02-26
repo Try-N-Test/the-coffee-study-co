@@ -11,11 +11,11 @@ import Footer from "@/components/shared/Footer";
 
 const Page = () => {
   return (
-    <section className="bg-background">
+    <section className="bg-primary-1">
         <PublicNavBar/>
       <div className="pt-8 flex flex-col items-center">
         <h1 className="mb-4 font-serif text-4xl font-semibold">
-          Meet Our <span className="text-primary">Team</span>
+          Meet Our <span className="text-primary-5">Team</span>
         </h1>
         <h2 className="mb-8 font-serif text-2xl font-semibold text-secondary">
           TRY <span className="text-black"> N&#39;</span> TEST
@@ -26,7 +26,7 @@ const Page = () => {
               className="duration-400 flex flex-col items-center gap-1 ease-in-out"
               key={index}
             >
-              <div className="duration-400 bg-gradient-radial left-0 top-0 h-80 w-72 rounded-br-3xl rounded-tl-3xl from-secondary to-primary ease-in-out bg-gradient-to-r hover:bg-gradient-to-b">
+              <div className="duration-400 bg-gradient-radial left-0 top-0 h-80 w-72 rounded-br-3xl rounded-tl-3xl from-secondary-4 to-primary-3 ease-in-out bg-gradient-to-r hover:bg-gradient-to-b">
                 <Image
                   src={item.image}
                   alt={item.name}
@@ -35,7 +35,7 @@ const Page = () => {
                 />
               </div>
 
-              <h1 className=" mt-4 font-serif text-2xl font-medium text-secondary md:font-semibold">
+              <h1 className=" mt-4 font-serif text-2xl font-medium text-secondary-9 md:font-semibold">
                 {item.name}
               </h1>
               <h1 className="font-sans text-sm font-light ">{item.team}</h1>
@@ -50,7 +50,7 @@ const Page = () => {
                   rel="noopener noreferrer"
                 >
                   {" "}
-                  <BsLinkedin className="m-2 h-8 w-8 cursor-pointer  hover:text-primary" />{" "}
+                  <BsLinkedin className="m-2 h-8 w-8 cursor-pointer  hover:text-primary-8" />{" "}
                 </Link>
                 <Link
                   href={item.instagram}
@@ -58,7 +58,7 @@ const Page = () => {
                   className="cursor-pointer"
                   rel="noopener noreferrer"
                 >
-                  <BsInstagram className="m-2 h-8 w-8 cursor-pointer hover:text-primary" />
+                  <BsInstagram className="m-2 h-8 w-8 cursor-pointer hover:text-primary-8" />
                 </Link>
                 <Link
                   href={item.github}
@@ -67,7 +67,7 @@ const Page = () => {
                   rel="noopener noreferrer"
                 >
                   {" "}
-                  <BsGithub className="m-2 h-8 w-8 cursor-pointer hover:text-primary" />{" "}
+                  <BsGithub className="m-2 h-8 w-8 cursor-pointer hover:text-primary-8" />{" "}
                 </Link>
               </div>
             </div>
@@ -77,7 +77,7 @@ const Page = () => {
 
       <div className="m-4 rounded-xl bg-secondary p-4 shadow-2xl md:m-16">
         <div className="rounded-xl bg-white p-1">
-          <div className="flex flex-col items-center rounded-xl bg-secondary p-2 md:p-4">
+          <div className="flex flex-col items-center rounded-xl bg-secondary-6 p-2 md:p-4">
             <h1 className="font-serif text-4xl text-white">About Us</h1>
             <p className="text-md m-4 text-justify font-sans font-light text-white">
               At Chikitsa Salah, we stand for a fundamental belief: that
@@ -109,7 +109,7 @@ const Page = () => {
       </div>
 
       <div className="mx-4 my-12 flex flex-col items-center gap-8 md:m-16 md:flex-row md:gap-4">
-        <div className="shadow-custom flex flex-col items-center gap-4 bg-primary p-4 text-white">
+        <div className="shadow-custom flex flex-col items-center gap-4 bg-primary-8 p-4 text-white">
           <h3 className="mt-2 rounded-xl bg-secondary p-3 font-sans text-white">
             WHO WE ARE, WHAT WE DO
           </h3>
@@ -131,7 +131,7 @@ const Page = () => {
             charge of their health and live life to the fullest.
           </p>
         </div>
-        <div className="shadow-custom flex flex-col items-center gap-4 bg-primary p-4 text-white">
+        <div className="shadow-custom flex flex-col items-center gap-4 bg-primary-8 p-4 text-white">
           <h3 className="mt-2 rounded-xl bg-secondary p-3 font-sans text-white">
             WHAT WE ASPIRE TO BE
           </h3>

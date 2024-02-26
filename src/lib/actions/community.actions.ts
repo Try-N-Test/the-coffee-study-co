@@ -114,8 +114,6 @@ export async function joinCommunity(userId: string, communityId: string) {
 
     revalidatePath(`/communities`); // Revalidate the path after joining the community
 
-    return community;
-
   } catch (error) {
     console.error("Error joining community:", error);
     throw error;
