@@ -39,8 +39,12 @@ export async function addNotes({
 }: Params) {
   try {
     connectToDB();
+
     const community = await Community.findById(communityId);
 
+    if(!community){
+      throw new Error("Community not found");
+    }
     const newNote = await Note.create({
       communityId,
       pdfLink,
@@ -54,7 +58,7 @@ export async function addNotes({
     community.notes.push(newNote);
     await community.save();
 
-    revalidatePath(pathname);
+    revalidatePath(pathname); // Revalidate the path after creating the note
   } catch (error) {
     console.log("Error in adding a note: ", error);
   }

@@ -6,9 +6,8 @@ interface UrlProps {
   params: { id: string };
 }
 const Page = async ({ params }: UrlProps) => {
-  console.log(params.id, "test");
   const result = await getCommunityById(params.id);
-  console.log(result, "result from chat room");
+
   return (
     <>
       <div style={{ width: "100%" }}>

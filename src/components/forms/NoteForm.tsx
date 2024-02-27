@@ -15,9 +15,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
+import { usePathname, useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
 import { Textarea } from "../ui/textarea";
+import { addNotes } from "@/lib/actions/note.actions";
 
 const notesFormSchema = z.object({
   notesTitle: z.string().min(2, {
@@ -34,20 +35,33 @@ const notesFormSchema = z.object({
     }),
 });
 
-const NotesForm = () => {
+const NotesForm = ({communityId, userId}:{communityId:string, userId: string}) => {
+  const pathname = usePathname();
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof notesFormSchema>>({
     resolver: zodResolver(notesFormSchema),
     defaultValues: {
       notesTitle: "",
+      notesLink: "",
       notesDescription: "",
     },
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof notesFormSchema>) {
+  async function onSubmit(values: z.infer<typeof notesFormSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    await addNotes({
+      communityId,
+      pdfLink:values.notesLink,
+      title:values.notesTitle,
+      description:values.notesDescription,
+      author: userId,
+      pathname
+    });
+
+    router.push(`/communities/${communityId}/notes`);
   }
 
   return (
@@ -60,7 +74,7 @@ const NotesForm = () => {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="m-auto  w-3/5"
+              className="m-auto grid gap-4 w-3/5"
             >
               <FormField
                 control={form.control}
@@ -100,12 +114,12 @@ const NotesForm = () => {
                 render={({ field }) => (
                   <FormItem className="">
                     <FormLabel className="font-secondary text-xl font-semibold">
-                      Notes link
+                      Notes Description
                     </FormLabel>
                     <FormControl>
                       <Textarea placeholder="" {...field} />
                     </FormControl>
-                    <FormDescription>Upload a pdf(20mb max)</FormDescription>
+                    <FormDescription>Write the description about Notes</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
