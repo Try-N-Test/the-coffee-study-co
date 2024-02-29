@@ -1,3 +1,5 @@
+"use server";
+
 import { Post } from "../models/post.model";
 import { connectToDB } from "../mongoose";
 import Community from "../models/community.model";
